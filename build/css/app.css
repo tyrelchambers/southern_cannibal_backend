@@ -1,0 +1,17 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8em;
+}
+
+.story {
+  white-space: pre-wrap;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.shared {
+  font-style: italic;
+}
