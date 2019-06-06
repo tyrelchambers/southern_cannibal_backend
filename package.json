@@ -14,11 +14,10 @@
     "email-templates": "^5.1.0",
     "express": "^4.17.1",
     "node-mailer": "^0.1.1",
-    "pug": "^2.0.3"
-  },
-  "devDependencies": {
+    "pug": "^2.0.3",
     "nodemon": "^1.19.1"
   },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "babel-node": "babel-node --presets=env",
