@@ -44,7 +44,7 @@ app.post('/submit', (req, res) => {
       shared: body.shared
     }
   })
-  .then(console.log)
+  .then()
   .catch(console.error);
 
   res.status(200).json({message: "Your story has been sent, thank you!"});
