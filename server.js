@@ -1,8 +1,11 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-const Email = require('email-templates');
+import nodemailer from 'nodemailer';
+require('dotenv').config()
 
+const Email = require('email-templates');
+ 
 const app = express();
 
 app.use(bodyParser.json());
@@ -14,11 +17,17 @@ const email = new Email({
     from: 'Story Submission <no-replay@southerncannibal.com>'
   },
   // uncomment below to send emails in development/test env:
-  send: false,
-  transport: {
-    jsonTransport: true
-  }
+  send: true,
+  transport: transporter
 });
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+         user: process.env.GMAIL_ACCOUNT,
+         pass: process.env.GMAIL_PASSWORD
+     }
+ });
 
 app.post('/submit', (req, res) => {
   const body = req.body;
@@ -36,7 +45,7 @@ app.post('/submit', (req, res) => {
       shared: body.shared
     }
   })
-  .then(console.log)
+  .then()
   .catch(console.error);
 
   res.status(200).json({message: "Your story has been sent, thank you!"});

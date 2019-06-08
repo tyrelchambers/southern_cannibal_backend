@@ -11,11 +11,13 @@
     "babel-register": "^6.26.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
     "email-templates": "^5.1.0",
     "express": "^4.17.1",
-    "node-mailer": "^0.1.1",
+    "nodemailer": "^6.2.1",
+    "nodemon": "^1.19.1",
     "pug": "^2.0.3",
-    "nodemon": "^1.19.1"
+    "sendmail": "^1.4.1"
   },
   "devDependencies": {},
   "scripts": {
