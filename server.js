@@ -14,24 +14,23 @@ app.use(cors());
 const port = process.env.PORT || 3001;
 const email = new Email({
   message: {
-    from: 'Story Submission <no-replay@southerncannibal.com>'
+    from: 'SouthernCannibal.com <no-replay@southerncannibal.com>'
   },
   // uncomment below to send emails in development/test env:
   send: true,
-  transport: transporter
+  transport: nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+           user: process.env.GMAIL_ACCOUNT,
+           pass: process.env.GMAIL_PASSWORD
+       }
+   })
 });
-
-var transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-         user: process.env.GMAIL_ACCOUNT,
-         pass: process.env.GMAIL_PASSWORD
-     }
- });
 
 app.post('/submit', (req, res) => {
   const body = req.body;
-
   email
   .send({
     template: 'mars',
@@ -45,7 +44,7 @@ app.post('/submit', (req, res) => {
       shared: body.shared
     }
   })
-  .then()
+  .then(console.log)
   .catch(console.error);
 
   res.status(200).json({message: "Your story has been sent, thank you!"});
