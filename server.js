@@ -35,7 +35,7 @@ app.post('/submit', (req, res) => {
   .send({
     template: 'mars',
     message: {
-      to: 'tychambers3@gmail.com'
+      to: 'southerncannibalstories@gmail.com'
     },
     locals: {
       name: body.name,
