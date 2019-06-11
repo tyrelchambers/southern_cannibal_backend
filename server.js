@@ -41,6 +41,7 @@ app.post('/submit', (req, res) => {
       name: body.name,
       email: body.email,
       text: body.story,
+      subject: body.subject,
       shared: body.shared
     }
   })
